@@ -1,4 +1,5 @@
 from assistant.Delivery import Delivery
+from datetime import datetime
 
 """
 Contains data for a single dash. Fields included are:
@@ -30,8 +31,8 @@ class Dash:
         self.deliveries.append(Delivery(restaurant, pay))
 
     def print(self):
-        print("start: " + self.start)
-        print("end: " + self.end)
+        print("start: " + self.start.strftime("%m/%d/%y %H:%M"))
+        print("end: " + self.end.strftime("%m/%d/%y %H:%M"))
         print("region: " + self.region)
         print("total pay: " + "${:,.2f}".format(self.total / 100.))
         print("additional pay: " + "${:,.2f}".format(self.additional / 100.))

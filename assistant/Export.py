@@ -5,8 +5,8 @@ def exportToFile(dashes, file):
     ds = []
     for dash in dashes.dashes:
         d = {}
-        d["start"] = dash.start
-        d["end"] = dash.end
+        d["start"] = dash.start.strftime("%m/%d/%y %H:%M")
+        d["end"] = dash.end.strftime("%m/%d/%y %H:%M")
         d["region"] = dash.region
         d["total"] = dash.total
         d["additional"] = dash.additional
