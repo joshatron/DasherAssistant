@@ -1,9 +1,11 @@
+import imp
+
 from assistant.Export import exportToFile
 from assistant.Import import importJSON, importManual
-from assistant.StatLoader import loadStats
+from assistant.StatLoader import findStats, loadStat
 
 dashes = importJSON("dashes.json")
-stats = loadStats()
+stats = findStats()
 
 while True:
     print("What would you like to do?")
@@ -29,9 +31,11 @@ while True:
         print("Choose a statistic to run")
         i = 1
         for stat in stats:
-            print(str(i) + ") " + stat.getName())
+            print(str(i) + ") " + stat["name"])
+            i += 1
         stat = int(input("Please choose and option: ")) - 1
-        stats[stat].runStat(dashes)
+        tempStat = loadStat(stats[stat])
+        tempStat.runStat(dashes)
     elif choice == 5:
         exit(0)
     else:

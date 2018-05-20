@@ -15,6 +15,7 @@ def runStat(dashes):
     print("Total money made: $" + str(totalMoney / 100.))
     print("Total hours worked: " + str(int(totalHours)))
     print("Overall average hourly rate: $" + str(int(totalMoney / totalHours) / 100.))
+    print()
 
 def getName():
     return "General overall stats"
