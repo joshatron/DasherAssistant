@@ -2,7 +2,7 @@ from assistant.Export import exportToFile
 from assistant.Import import importJSON, importManual
 from assistant.StatLoader import findStats, loadStat
 
-dashes = importJSON("dashes.json")
+dashes = importJSON("assistant/dashes.json")
 stats = findStats()
 
 while True:
