@@ -1,5 +1,3 @@
-import imp
-
 from assistant.Export import exportToFile
 from assistant.Import import importJSON, importManual
 from assistant.StatLoader import findStats, loadStat
@@ -35,6 +33,7 @@ while True:
             i += 1
         stat = int(input("Please choose and option: ")) - 1
         tempStat = loadStat(stats[stat])
+        print()
         tempStat.runStat(dashes)
     elif choice == 5:
         exit(0)

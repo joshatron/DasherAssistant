@@ -12,9 +12,10 @@ def runStat(dashes):
 
     print("Total dashes done: " + str(totalDashes))
     print("Total deliveries made: " + str(totalDeliveries))
-    print("Total money made: $" + str(totalMoney / 100.))
+    print("Total money made: $" + ("%.2f" % (totalMoney / 100.)))
     print("Total hours worked: " + str(int(totalHours)))
-    print("Overall average hourly rate: $" + str(int(totalMoney / totalHours) / 100.))
+    print("Overall average hourly rate: $" + ("%.2f" % (int(totalMoney / totalHours) / 100.)))
+    print("Overall average deliveries per hour: " + ("%.2f" % (totalDeliveries / totalHours)))
     print()
 
 def getName():
