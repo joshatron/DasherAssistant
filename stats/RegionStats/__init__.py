@@ -1,3 +1,6 @@
+'''
+Prints data about general statistics by region
+'''
 def runStat(dashes):
     regions = {}
     for dash in dashes.dashes:

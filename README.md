@@ -23,3 +23,5 @@ There are 2 methods you need to implement:
  * runStat(dashes)- gives you a Dashes object to analyze.
  This is your main running function.
  It does nothing with the return, so you will need to print any output you want
+ 
+For a basic example implementation, look at the stats/TotalStats folder

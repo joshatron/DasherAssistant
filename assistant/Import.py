@@ -5,6 +5,9 @@ from assistant.Dash import Dash
 from assistant.Dashes import Dashes
 
 
+'''
+Imports dash data from a json file
+'''
 def importJSON(file):
     jsonString = open(file).read()
     data = json.loads(jsonString)
@@ -16,6 +19,9 @@ def importJSON(file):
         dashes.addDash(d)
     return dashes
 
+'''
+Imports dash data from user input
+'''
 def importManual():
     start = datetime.strptime(input("What is the start date and time (MM/DD/YY HH:MM)? "), "%m/%d/%y %H:%M")
     end = datetime.strptime(input("What is the end date and time (MM/DD/YY HH:MM)? "), "%m/%d/%y %H:%M")

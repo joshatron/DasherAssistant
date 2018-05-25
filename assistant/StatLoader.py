@@ -1,6 +1,9 @@
 import imp
 import os
 
+'''
+Finds all the plugins and loads references to them, along with getting their text description from getName()
+'''
 def findStats():
     stats = []
     statsList = os.listdir("./stats")
@@ -13,5 +16,8 @@ def findStats():
 
     return stats
 
+'''
+Takes a plugin reference and dynamically loads it to run
+'''
 def loadStat(stat):
     return imp.load_module("__init__", *stat["info"])

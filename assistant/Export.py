@@ -1,6 +1,9 @@
 import json
 
 
+'''
+Exports dash data to a json file
+'''
 def exportToFile(dashes, file):
     ds = []
     for dash in dashes.dashes:

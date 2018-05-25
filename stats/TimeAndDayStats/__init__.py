@@ -1,3 +1,7 @@
+'''
+Creates a chart with average pay for each hour of each day
+Values are calculated assuming dash has even distribution of pay because more accurate statistics can't be determined
+'''
 def runStat(dashes):
     days = [[{"rate": 0, "num": 0} for col in range(24)] for row in range(7)]
 

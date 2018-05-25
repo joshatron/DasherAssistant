@@ -1,3 +1,6 @@
+'''
+Prints data about each restaurant
+'''
 def runStat(dashes):
     restaurants = {}
     for dash in dashes.dashes:

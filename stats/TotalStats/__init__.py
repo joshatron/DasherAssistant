@@ -1,3 +1,6 @@
+'''
+Prints general statistics from all dashes
+'''
 def runStat(dashes):
     totalMoney = 0
     totalHours = 0.0
