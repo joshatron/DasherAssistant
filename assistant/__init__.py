@@ -12,7 +12,13 @@ while True:
     print("3) export")
     print("4) run statistic")
     print("5) exit")
-    choice = int(input("Please choose an option: "))
+    inStr = input("Please choose an option: ")
+    choice = 0
+    try:
+        choice = int(inStr)
+    except:
+        print("Invalid input. Please enter a valid number")
+        continue
 
     if choice == 1:
         dashes.addDash(importManual())
@@ -32,7 +38,16 @@ while True:
         for stat in stats:
             print(str(i) + ") " + stat["name"])
             i += 1
-        stat = int(input("Please choose and option: ")) - 1
+
+        stat = 0
+        while True:
+            statStr = input("Please choose and option: ")
+            try:
+                stat = int(statStr)
+                break
+            except:
+                print("Invalid input. Please enter a valid number")
+
         tempStat = loadStat(stats[stat])
         print()
         tempStat.runStat(dashes)

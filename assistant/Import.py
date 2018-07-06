@@ -23,18 +23,59 @@ def importJSON(file):
 Imports dash data from user input
 '''
 def importManual():
-    start = datetime.strptime(input("What is the start date and time (MM/DD/YY HH:MM)? "), "%m/%d/%y %H:%M")
-    end = datetime.strptime(input("What is the end date and time (MM/DD/YY HH:MM)? "), "%m/%d/%y %H:%M")
+    start = 0
+    while True:
+        startStr = input("What is the start date and time (MM/DD/YY HH:MM)? ")
+        try:
+            start = datetime.strptime(startStr, "%m/%d/%y %H:%M")
+            break;
+        except:
+            print("Invalid date. Please use specified format")
+
+    end = 0
+    while True:
+        endStr = input("What is the end date and time (MM/DD/YY HH:MM)? ")
+        try:
+            end = datetime.strptime(endStr, "%m/%d/%y %H:%M")
+            break;
+        except:
+            print("Invalid date. Please use specified format")
+
     region = input("What is the region? ")
-    total = int(float(input("What was the total pay? $")) * 100)
-    additional = int(float(input("What was the additional pay? $")) * 100)
+
+    total = 0
+    while True:
+        totalStr = input("What was the total pay? $")
+        try:
+            total = int(float(totalStr) * 100)
+            break
+        except:
+            print("Invalid input. Please enter a valid number")
+
+    additional = 0
+    while True:
+        additionalStr = input("What was the additional pay? $")
+        try:
+            additional = int(float(totalStr) * 100)
+            break
+        except:
+            print("Invalid input. Please enter a valid number")
+
     d = Dash(start, end, region, total, additional)
     print("Type the restaurant name and pay for each delivery.")
     print("Leave the restaurant blank to exit.")
     while True:
         restaurant = input("What was the restaurant name? ")
         if(restaurant != ""):
-            pay = int(float(input("What was the pay? $")) * 100)
+            pay = 0
+            while True:
+                payStr = input("What was the pay? $")
+                try:
+                    pay = int(float(payStr) * 100)
+                    break
+                except:
+                    print("Invalid input. Please enter a valid number")
+
             d.addDelivery(restaurant, pay)
         else:
             break
