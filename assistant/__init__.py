@@ -21,7 +21,7 @@ while True:
         continue
 
     if choice == 1:
-        dashes.addDash(importManual())
+        dashes.addDash(importManual(dashes.restaurants, dashes.regions))
         exportToFile(dashes, "dashes.json")
     elif choice == 2:
         i = 1

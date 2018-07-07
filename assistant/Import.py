@@ -1,9 +1,10 @@
 import json
+import readline
 from datetime import datetime
 
 from assistant.Dash import Dash
 from assistant.Dashes import Dashes
-
+from assistant.Completer import Completer
 
 '''
 Imports dash data from a json file
@@ -22,7 +23,13 @@ def importJSON(file):
 '''
 Imports dash data from user input
 '''
-def importManual():
+def importManual(restaurants, regions):
+    regionComp = Completer(regions)
+    restaurantComp = Completer(restaurants)
+
+    readline.parse_and_bind("tab: complete")
+    readline.set_completer_delims('')
+
     start = 0
     while True:
         startStr = input("What is the start date and time (MM/DD/YY HH:MM)? ")
@@ -34,14 +41,20 @@ def importManual():
 
     end = 0
     while True:
-        endStr = input("What is the end date and time (MM/DD/YY HH:MM)? ")
+        endStr = input("What is the end date and time (HH:MM or MM/DD/YY HH:MM)? ")
         try:
-            end = datetime.strptime(endStr, "%m/%d/%y %H:%M")
-            break;
+            end = datetime.strptime(str(start.month) + "/" + str(start.day) + "/" + str(start.year) + " " + endStr, "%m/%d/%Y %H:%M")
+            break
         except:
-            print("Invalid date. Please use specified format")
+            try:
+                end = datetime.strptime(endStr, "%m/%d/%y %H:%M")
+                break
+            except:
+                print("Invalid date. Please use specified format")
 
+    readline.set_completer(regionComp.complete)
     region = input("What is the region? ")
+    readline.set_completer(None)
 
     total = 0
     while True:
@@ -65,7 +78,9 @@ def importManual():
     print("Type the restaurant name and pay for each delivery.")
     print("Leave the restaurant blank to exit.")
     while True:
+        readline.set_completer(restaurantComp.complete)
         restaurant = input("What was the restaurant name? ")
+        readline.set_completer(None)
         if(restaurant != ""):
             pay = 0
             while True:
