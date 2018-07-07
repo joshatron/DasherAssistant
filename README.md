@@ -11,7 +11,7 @@ How To Run
 
 To run from the command line, navigate to the root of the project and run:
 
-    python3 -m assistant
+    ./dassistant
     
 Adding Plugins
 --------------
