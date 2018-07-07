@@ -48,7 +48,7 @@ while True:
             except:
                 print("Invalid input. Please enter a valid number")
 
-        tempStat = loadStat(stats[stat])
+        tempStat = loadStat(stats[stat - 1])
         print()
         tempStat.runStat(dashes)
     elif choice == 5:

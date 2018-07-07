@@ -3,7 +3,8 @@ Dasher Assistant
 
 The goal of this application is to provide statistical information to dashers.
 It will try to help figure out what regions, times, and restaurants are better paying.
-It also features a plugin structure so anyone can create their own analysis tool.
+It features a plugin structure so anyone can create their own analysis tool.
+When manually adding a dash, there is tab completion, but only if run in a true terminal, not an IDE.
 
 How To Run
 ----------
