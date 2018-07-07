@@ -29,6 +29,7 @@ while True:
             print()
             i += 1
     elif choice == "export":
+        print("Exporting...")
         exportToFile(dashes, "dashes.json")
     elif choice == "stat":
         print("Choose a statistic to run")
@@ -42,9 +43,13 @@ while True:
             statStr = input("Please choose and option: ")
             try:
                 stat = int(statStr)
-                break
+                if stat > 0 and stat < i:
+                    break
+                else:
+                    print("Invalid option. Please choose one of the options displayed")
             except:
                 print("Invalid input. Please enter a valid number")
+
 
         tempStat = loadStat(stats[stat - 1])
         print()
