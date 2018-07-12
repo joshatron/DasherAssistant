@@ -21,6 +21,7 @@ def runStat(dashes):
         print("Money made: $" + str(regions[region]["pay"] / 100.))
         print("Hours worked: " + str(int(regions[region]["hours"])))
         print("Average hourly rate: $" + str(int(regions[region]["pay"] / regions[region]["hours"]) / 100.))
+        print("Average deliveries per hour: " + ("%.2f" % (regions[region]["deliveries"] / regions[region]["hours"])))
         print()
 
 def getName():
