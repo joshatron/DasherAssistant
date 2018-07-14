@@ -11,11 +11,11 @@ def runStat(dashes):
             else:
                 restaurants[restaurant.restaurant] = {"pay": restaurant.pay, "num": 1}
 
-    for restaurant in restaurants:
-        print(restaurant)
-        print("Deliveries:  " + str(restaurants[restaurant]["num"]))
-        print("Total pay:   $" + ("%.2f" % (restaurants[restaurant]["pay"] / 100.)))
-        print("Average pay: $" + ("%.2f" % ((restaurants[restaurant]["pay"] / 100.) / restaurants[restaurant]["num"])))
+    for restaurant in sorted(restaurants.items(), key=lambda x: x[1]["num"]):
+        print(restaurant[0])
+        print("Deliveries:  " + str(restaurant[1]["num"]))
+        print("Total pay:   $" + ("%.2f" % (restaurant[1]["pay"] / 100.)))
+        print("Average pay: $" + ("%.2f" % ((restaurant[1]["pay"] / 100.) / restaurant[1]["num"])))
         print()
 
 def getName():
