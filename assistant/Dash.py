@@ -37,5 +37,9 @@ class Dash:
         print("total pay: " + "${:,.2f}".format(self.total / 100.))
         print("additional pay: " + "${:,.2f}".format(self.additional / 100.))
         print("deliveries:")
+        length = 0
         for d in self.deliveries:
-            print(d.restaurant + "\t" + "${:,.2f}".format(d.pay / 100.))
+            if(len(d.restaurant) > length):
+                length = len(d.restaurant)
+        for d in self.deliveries:
+            print(("{:" + str(length + 2) + "}").format(d.restaurant) + "${:,.2f}".format(d.pay / 100.))

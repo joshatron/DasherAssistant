@@ -69,7 +69,7 @@ def importManual(restaurants, regions):
     while True:
         additionalStr = input("What was the additional pay? $")
         try:
-            additional = int(float(totalStr) * 100)
+            additional = int(float(additionalStr) * 100)
             break
         except:
             print("Invalid input. Please enter a valid number")
