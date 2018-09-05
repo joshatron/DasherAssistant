@@ -2,8 +2,8 @@ import json
 import readline
 from datetime import datetime
 
-from assistant.Dash import Dash
-from assistant.Dashes import Dashes
+from assistant.Shift import Shift
+from assistant.Shifts import Shifts
 from assistant.Completer import Completer
 
 '''
@@ -12,12 +12,12 @@ Imports dash data from a json file
 def importJSON(file):
     jsonString = open(file).read()
     data = json.loads(jsonString)
-    dashes = Dashes()
+    dashes = Shifts()
     for dash in data:
-        d = Dash(datetime.strptime(dash["start"], "%m/%d/%y %H:%M"), datetime.strptime(dash["end"], "%m/%d/%y %H:%M"), dash["region"], dash["total"], dash["additional"])
+        d = Shift(datetime.strptime(dash["start"], "%m/%d/%y %H:%M"), datetime.strptime(dash["end"], "%m/%d/%y %H:%M"), dash["region"], dash["total"], dash["additional"])
         for delivery in dash["deliveries"]:
             d.addDelivery(delivery["restaurant"], delivery["pay"])
-        dashes.addDash(d)
+        dashes.addShifts(d)
     return dashes
 
 '''
@@ -74,7 +74,7 @@ def importManual(restaurants, regions):
         except:
             print("Invalid input. Please enter a valid number")
 
-    d = Dash(start, end, region, total, additional)
+    d = Shift(start, end, region, total, additional)
     print("Type the restaurant name and pay for each delivery.")
     print("Leave the restaurant blank to exit.")
     while True:

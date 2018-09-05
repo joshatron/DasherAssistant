@@ -5,7 +5,7 @@ from assistant.Export import exportToFile
 from assistant.Import import importJSON, importManual
 from assistant.StatLoader import findStats, loadStat
 
-dashes = importJSON("dashes.json")
+shifts = importJSON("dashes.json")
 stats = findStats()
 
 optionComp = Completer(['add', 'print', 'export', 'stat', 'exit', 'help'])
@@ -19,18 +19,18 @@ while True:
     readline.set_completer(None)
 
     if choice == "add":
-        dashes.addDash(importManual(dashes.restaurants, dashes.regions))
-        exportToFile(dashes, "dashes.json")
+        shifts.addShifts(importManual(shifts.restaurants, shifts.regions))
+        exportToFile(shifts, "dashes.json")
     elif choice == "print":
         i = 1
-        for dash in dashes.dashes:
+        for dash in shifts.dashes:
             print("Dash " + str(i))
             dash.print()
             print()
             i += 1
     elif choice == "export":
         print("Exporting...")
-        exportToFile(dashes, "dashes.json")
+        exportToFile(shifts, "dashes.json")
     elif choice == "stat":
         print("Choose a statistic to run")
         i = 1
@@ -53,7 +53,7 @@ while True:
 
         tempStat = loadStat(stats[stat - 1])
         print()
-        tempStat.runStat(dashes)
+        tempStat.runStat(shifts)
     elif choice == "help":
         print("Options for commands:")
         print("  add- add dash")
